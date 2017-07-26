@@ -1,0 +1,22 @@
+version: '2'
+
+volumes:
+  data_volume:
+    driver: local
+
+services:
+  haproxy:
+    build: .
+    # These can be $(echo 'HAPROXY_ENV_VAR="test"' >> /etc/environment) for permanence
+    environment:
+      HAPROXY_SERVER_NAME: "mattslocal"
+    expose:
+      - "8080"
+      - "8443"
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./haproxy.cfg:/etc/haproxy/haproxy.cfg
+      - ./errors:/etc/haproxy/errors
+

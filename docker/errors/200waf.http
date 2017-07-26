@@ -1,0 +1,8 @@
+HTTP/1.0 200 Success
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/html
+
+<html><body><h1>200 Success</h1>
+HAProxy is UP
+</body></html>
